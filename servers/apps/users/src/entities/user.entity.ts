@@ -33,7 +33,13 @@ export class User {
     @Field()
     password: string;
 
-    @Field()
+    @Field({nullable: true})
+    phone_number?: string | null;
+
+    @Field({nullable: true})
+    address?: string | null;
+
+    @Field({nullable: true})
     avatar?: Avatar | null;
 
     @Field()

@@ -32,3 +32,10 @@ export class LoginResponse {
     error?: ErrorType | any;
 
 }
+
+export interface UserData {
+    email: string;
+    password: string;
+    name: string;
+    phone_number: string;
+}
