@@ -16,9 +16,10 @@ export class UsersResolver {
     @Args('registerDto') registerDto: RegisterDto,
     @Context() context: { response: Response },
   ): Promise<RegisterResponse> {
-    if (!registerDto.email || !registerDto.password || !registerDto.name)
+    if (!registerDto.name)
       throw new BadRequestException('please provide all required fields');
     const user = await this.usersService.register(registerDto, context.response);
+    console.log('register user', user);
     return { user };
   }
 

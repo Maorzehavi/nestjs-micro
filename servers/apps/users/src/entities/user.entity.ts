@@ -20,7 +20,6 @@ export class Avatar {
 @ObjectType()
 @Directive('@key(fields: "id")')
 export class User {
-
     @Field()
     id: string;
 
@@ -30,16 +29,17 @@ export class User {
     @Field()
     email: string;
 
-    @Field()
-    password: string;
+    // Exclude password from GraphQL response
+    @Field({ nullable: true })
+    password?: string;
 
-    @Field({nullable: true})
+    @Field({ nullable: true })
     phone_number?: string | null;
 
-    @Field({nullable: true})
+    @Field({ nullable: true })
     address?: string | null;
 
-    @Field({nullable: true})
+    @Field({ nullable: true })
     avatar?: Avatar | null;
 
     @Field()
@@ -51,6 +51,7 @@ export class User {
     @Field()
     updated_at: Date;
 }
+
 
 
 

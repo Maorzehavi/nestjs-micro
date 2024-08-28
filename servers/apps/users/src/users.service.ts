@@ -61,9 +61,19 @@ export class UsersService {
       });
 
 
+      const savedUser = await this.prisma.user.create({
+        data: {
+          name,
+          email,
+          password: hashedPassword,
+          phone_number,
+        },
+      });
+
+      console.log('savedUser', savedUser);
 
 
-    return [user, response];
+    return [savedUser, response];
   }
 
   async createActivationToken(user: UserData) {
